@@ -18,11 +18,11 @@ router.post('/register', validateMe, (req, res) => {
 })
 
 router.post('/login', (req, res) => {
-  Users.findBy(username)
+  Users.findBy(req.body.username)
        .first()
        .then(user => {
          if(user && bcrypt.compareSync(req.body.password, user.password)){
-           res.status(200).json({message: `Welcome ${res.body.username}`, token: assignToken(user)})
+           res.status(200).json({message: `Welcome ${req.body.username}`, token: assignToken(user)})
          }
        })
 })

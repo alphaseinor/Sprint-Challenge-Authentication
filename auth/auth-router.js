@@ -1,11 +1,11 @@
 const router = require('express').Router();
 
 router.post('/register', (req, res) => {
-  // implement registration
+  res.status(200).json(req.body)
 });
 
 router.post('/login', (req, res) => {
-  // implement login
+  res.status(200).json(req.body)
 });
 
 module.exports = router;

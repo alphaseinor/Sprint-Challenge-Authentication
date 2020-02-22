@@ -11,23 +11,29 @@ function App() {
   useEffect(()=>{cogoToast.info('Page Refreshed',{position:"bottom-right"})},[refresh])
 
   return (
-    <main>
+    <>
       {
         localStorage.getItem('token') ? (
           <>
-            <button onClick={()=>{
-              localStorage.clear('token')
-              setRefresh(!refresh)
-            }}>Logout</button>
-            <Jokes />
+            <header>
+              <h1>Dad Jokes</h1>
+              <button onClick={()=>{
+                localStorage.clear('token')
+                setRefresh(!refresh)
+              }}>Logout</button>
+            </header>
+            <main>
+              <Jokes />
+            </main>
           </>
         ):(
-          <>
+          <header>
+            <h1>Dad Jokes</h1>
             <Login refresh={refresh} setRefresh={setRefresh} />
-          </>
+          </header>
         )
       }
-    </main>
+    </>
   )
 }
 

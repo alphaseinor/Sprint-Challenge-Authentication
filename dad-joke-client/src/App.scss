@@ -65,6 +65,13 @@ button {
   }
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -78,8 +85,13 @@ main {
     input {
       padding: 5px;
       margin: 1px;
+      border: solid 1px #222;
+      border-radius: 5px;
       &:hover{
         background-color: cornsilk;
+        border: none;
+        border: solid 1px #222;
+        
       }
     }
   }
@@ -107,3 +119,4 @@ main {
     }
   }
 }
+

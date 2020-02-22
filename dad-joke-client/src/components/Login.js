@@ -49,7 +49,7 @@ const Login = ({refresh, setRefresh}) => {
           value={userLogin.username}
           onChange={e => handleChange(e)}
         />
-        <label>password</label>
+        <label>Password</label>
         <input 
           type="password"
           name="password"

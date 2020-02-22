@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import cogoToast from 'cogo-toast'
 import './App.scss'
 
 import Login from './components/Login'
@@ -7,7 +8,7 @@ import Jokes from './components/Jokes'
 function App() {
   const [refresh, setRefresh] = useState(true)
   
-  useEffect(()=>{console.log(refresh)},[refresh])
+  useEffect(()=>{cogoToast.info('Page Refreshed',{position:"bottom-right"})},[refresh])
 
   return (
     <main>

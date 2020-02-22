@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import cogoToast from 'cogo-toast'
 
 const Login = ({refresh, setRefresh}) => {
   const [userLogin, setUserLogin] = useState(
@@ -15,14 +16,13 @@ const Login = ({refresh, setRefresh}) => {
 
   const submitLogin = e => {
     e.preventDefault()
-    console.log(userLogin)
     axios.post('http://localhost:3300/api/auth/login', userLogin)
          .then(response => {
            localStorage.setItem('token', response.data.token)
            setRefresh(!refresh)
          })
          .catch(error => {
-           console.log(error)
+            cogoToast.error('error logging in',{position:"bottom-right"})
          })
   }
 
@@ -34,7 +34,7 @@ const Login = ({refresh, setRefresh}) => {
            submitLogin(e)
          })
          .catch(error => {
-           console.log(error)
+            cogoToast.error('error registering',{position:"bottom-right"})
          })
   }
 
@@ -51,6 +51,7 @@ const Login = ({refresh, setRefresh}) => {
         />
         <label>password</label>
         <input 
+          type="password"
           name="password"
           value={userLogin.password}
           onChange={e => handleChange(e)}
